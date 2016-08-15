@@ -1,4 +1,6 @@
-//goal: to make standard graph structure:
+//Optimized for shortest path algorithm
+// 15 Aug 2016 | 10:30 pm
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

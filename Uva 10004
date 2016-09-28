@@ -1,0 +1,48 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct edge{
+int v, w;
+};
+
+int nV, nE;
+
+void bfs(int _src)
+{
+    vector <bool> isVisited(nV); 
+    for(int i = 0; i < nV; i++){
+        isVisited[i] = false;
+    }
+    
+    queue <int> q;
+    q.push(src);
+    isVisited[src] = true;
+    
+    
+    while(!q.empty()){
+        u = q.pop();
+        if(isVisited[u] == true){
+            
+        }
+    }
+    
+}
+vector <edge> adj[1000];
+
+int main()
+{
+    cin >> nV >> nE;
+    
+    for(int i  =0 ; i < nnV; i++){
+        cin >> u >> v >> w;
+        edge temp;
+        temp.v = v;
+        temp.w = 1;
+        
+        adj[i].push_back(temp);
+    }
+    
+    
+}

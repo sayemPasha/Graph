@@ -1,4 +1,5 @@
 
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -8,41 +9,66 @@ int v, w;
 };
 
 int nV, nE;
+vector <edge> adj[1000];
 
-void bfs(int _src)
+string bfs(int src)
 {
-    vector <bool> isVisited(nV); 
+    vector <bool> isVisited(nV);
+    vector <bool> color(nV);
+    bool clr = true;
+
     for(int i = 0; i < nV; i++){
         isVisited[i] = false;
     }
-    
+
     queue <int> q;
     q.push(src);
     isVisited[src] = true;
-    
-    
+    int u;
+
+
     while(!q.empty()){
-        u = q.pop();
-        if(isVisited[u] == true){
-            
+        u = q.front();
+        q.pop();
+
+        for(int i = 0;i < adj[i].size(); i++){
+
+            edge temp = adj[u][i];
+            int v; v = temp.v;
+
+            if(isVisited[v] == false){
+                isVisited[v] = true;
+                q.push(v);
+                color[v] = !clr;
+            }
+            else{
+                if(color[v] == clr){
+                    return "NOT BICOLORABLE.\n";
+                }
+            }
         }
+        clr = !clr;
     }
-    
+    return "BICOLORABLE.\n";
+
 }
-vector <edge> adj[1000];
+
 
 int main()
 {
+    freopen("in.txt", "r", stdin);
     cin >> nV >> nE;
-    
-    for(int i  =0 ; i < nnV; i++){
-        cin >> u >> v >> w;
+    int u, v, w;
+    for(int i  =0 ; i < nV; i++){
+        cin >> u >> v;
+        v--; u--;
         edge temp;
         temp.v = v;
         temp.w = 1;
-        
+
         adj[i].push_back(temp);
     }
-    
-    
+    cout << bfs(0);
+
 }
+
